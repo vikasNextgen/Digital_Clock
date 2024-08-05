@@ -3,9 +3,14 @@ from time import strftime
 
 # Function to update the time
 def time():
-    string = strftime('%H:%M:%S %p')
-    label.config(text=string)
-    label.after(1000, time)  # Update the time every 1 second
+    current_time = strftime('%H:%M:%S %p')
+    label_time.config(text=current_time)
+    label_time.after(1000, time)  # Update the time every 1 second
+
+# Function to update the date
+def date():
+    current_date = strftime('%A, %B %d, %Y')
+    label_date.config(text=current_date)
 
 # Function to create a gradient background
 def create_gradient(canvas, color1, color2):
@@ -40,12 +45,17 @@ canvas.bind('<Configure>', lambda event: create_gradient(canvas, '#000428', '#00
 frame = tk.Frame(canvas, bg='black')
 frame.place(relx=0.5, rely=0.5, anchor='center')
 
-# Configure the appearance of the clock
-label = tk.Label(frame, font=('Helvetica', 48, 'bold'), background='black', foreground='white')
-label.pack(anchor='center')
+# Configure the appearance of the time label
+label_time = tk.Label(frame, font=('Helvetica', 48, 'bold'), background='black', foreground='white')
+label_time.pack(anchor='center')
 
-# Call the time function to initialize the clock
+# Configure the appearance of the date label
+label_date = tk.Label(frame, font=('Helvetica', 24, 'bold'), background='black', foreground='white')
+label_date.pack(anchor='center')
+
+# Call the time and date functions to initialize the clock
 time()
+date()
 
 # Run the application
 root.mainloop()
