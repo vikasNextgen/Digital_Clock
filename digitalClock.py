@@ -45,6 +45,10 @@ canvas.bind('<Configure>', lambda event: create_gradient(canvas, '#000428', '#00
 frame = tk.Frame(canvas, bg='black')
 frame.place(relx=0.5, rely=0.5, anchor='center')
 
+# Stylish heading "vikas"
+label_heading = tk.Label(frame, text="sai", font=('Helvetica', 36, 'bold'), background='black', foreground='#ffcc00')
+label_heading.pack(anchor='center', pady=20)
+
 # Configure the appearance of the time label
 label_time = tk.Label(frame, font=('Helvetica', 48, 'bold'), background='black', foreground='white')
 label_time.pack(anchor='center')
